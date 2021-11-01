@@ -12,8 +12,7 @@ features:
   - Projet
 ---
 
-<img src="/preview.png" class="light-img" width="1280" height="640" alt=""/>
-<img src="/preview-dark.png" class="dark-img" width="1280" height="640" alt=""/>
+<img src="/Vue3.png"  width="1280" height="640" alt=""/>
 
 Bienvenue sur cette documentation qui contient toutes les infos dont vous aurez besoin dans ce cours.
 Afin de profiter du cours, il est obligatoire de rejoindre le discord suivant: .
