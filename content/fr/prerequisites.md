@@ -7,11 +7,14 @@ category: Configuration
 Cette section vous permet de configurer votre poste afin de pouvoir développer sans soucis en cours.
 Vous y trouverez le liens à télécharger, ainsi que le prérequis nécessaires si vous ne les avez pas déjà.
 
-# Gestionnaire de packages
+# Runtime
 
-Il vous faut avoir `yarn` ou `npm` dans leurs dernières versions dans un premier temps.
+Il vous faut avoir `nodejs` dans une version qui est minimum >=14.
 
-<!-- Ajouter image pour yarn + npm + lien pour chaque -->
+<img src="http://www.alekos.fr/wp-content/uploads/2016/06/nodejs.jpg">
+
+Lien pour télécharger : https://nodejs.org/
+
 
 # IDE
 
