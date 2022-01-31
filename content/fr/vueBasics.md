@@ -151,3 +151,164 @@ Vous remarquerez que dans l'exemple j'écris <code>@click</code> alors qu'on par
 
 Pour plus d'informations sur cette directive, je vous conseille de lire la documentation officielle de Vue : https://v3.vuejs.org/api/directives.html#v-on .
 
+### v-bind
+
+La directive <code>v-bind</code> permet de lier une donnée du composant à un attribut d'un élément du template.
+Par exemple, dans le code suivant, nous affectons la donnée <code>imgUrl</code> à notre élément <code>\<img></code>.
+
+```html
+<template>
+  <img :src="imgUrl">
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data: () => {
+    return {
+      imgUrl: 'https://...',
+    },
+  },
+})
+</script>
+```
+Dans cet exemple, vous remarquez que vous ne voyez pas la directive `v-bind`, c'est normal, car <code>:src</code> est une manière raccourcie d'écrire <code>v-bind:src</code> et c'est la manière dont il faudra l'écrire de manière générale.
+
+## Options
+
+### computed
+
+Une <code>computed</code>, est une valeur calculée. Dans le composant, elle est définie comme une fonction sans paramètre mais utilisée comme une <code>data</code>. 
+
+Le but d'une <code>computed</code> et de garder un <code>template</code> déclaratif et plus lisible, tout en améliorant les performances. 
+
+Si on prends l'exemple suivant : 
+
+```html
+<template>
+  <input v-model="nom" placeholder="nom"/>
+  <input v-model="prenom" placeholder="prenom"/>
+  <p>{{ fullName }}</p>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      nom: '',
+      prenom: ''
+    }
+  },
+  computed: {
+    fullName() {
+      return `${this.nom} ${this.prenom}`; 
+    }
+  }
+})
+</script>
+
+```
+
+La valeur de la computed <code>fullName</code> sera recalculée à chaque fois que la valeur de la data <code>nom</code> ou <code>prenom</code> est modifiée. 
+Elle ne sera donc pas recalculée à chaque fois si les valeurs restent inchangées. 
+
+Tandis que si on décide ne pas utiliser de computed et de faire : 
+
+```html
+<template>
+  <input v-model="nom" placeholder="nom"/>
+  <input v-model="prenom" placeholder="prenom"/>
+  <p>{{ nom + ' ' + prenom }}</p>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      nom: '',
+      prenom: ''
+    }
+  },
+})
+</script>
+
+```
+
+La valeur correspondant au nom complet sera recalculée à chaque fois qu'un <code>rendu</code> de la page est effectué. 
+Egalement, on voit que celà rends le code moins maintenable et nous avons en plus une opération dans le <code>template</code>, qui nous fait perdre le côté **déclaratif** de Vue.
+
+### methods
+
+Il n'y a pas grand chose à dire sur les méthodes. Vous savez déjà ce que c'est. La seule différence, est qu'ici, ce sont des méthodes **SPECIFIQUES** au composant. Elles ne pourront donc pas utilisées en dehors.
+
+Exemple :
+
+```html
+<template>
+  <button @click="increment">Incrémenter</button>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      counter: 0,
+    }
+  },
+  methods: {
+    increment() {
+      this.counter++;
+    }
+  }
+});
+</script>
+```
+
+Dans cet exemple, nous déclarons une méthode qui permet d'incrémenter la valeur de notre compteur.
+
+## Communication
+
+### props
+
+Les props, permettent à un composant parent de communiquer avec un composant enfant en lui passant des données. 
+La donnée transmise, est, réactive. Si elle change au niveau du parent, le changement sera répercuté dans l'enfant. En revanche, elle n'est **PAS MODIFIABLE** depuis l'enfant.
+
+Exemple : 
+
+```html
+<!-- ComposantEnfant.vue -->
+<template>
+  <span>{{ numero }}</span>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: {
+    numero: Number,
+  },
+});
+</script>
+```
+
+Nous avons ci dessus, un composant, qui affiche un numéro. On voit ici, que le numéro est défini en tant que props, ce qui signifie que sa valeur sera mise à jour dynamiquement, en fonction de ce que le composant parent a passé.
+
+De son côté, le composant parent, pour appeler ce composant de cette manière : 
+
+```js
+<ComposantEnfant numero="3" />
+```
+
+ou dans le cas ou il utilise une data :
+
+```js
+<ComposantEnfant :numero="maData" />
+```
