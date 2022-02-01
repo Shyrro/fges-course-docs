@@ -273,6 +273,37 @@ export default defineComponent({
 
 Dans cet exemple, nous déclarons une méthode qui permet d'incrémenter la valeur de notre compteur.
 
+### watchers
+
+Les watchers permettent de **surveiller** une variable et d'exécuter de la logique en conséquence. 
+
+Prenons cet exemple : 
+
+```js
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data: () => {
+    firstName: 'Foo',
+    lastName: 'Bar',
+    fullName: 'Foo Bar',
+  },
+  watch: {
+    firstName: function (newVal) {
+      this.fullName = `${newVal} ${this.lastName}`;
+    },
+    lastName: function (newVal) {
+      this.fullName = `${this.firstName} ${newVal}`;
+    },
+  }
+})
+```
+
+Dans cet exemple, nous surveillons la data <code>firstName</code> ainsi que la data <code>lastName</code>. A chaque fois que celle ci change, nous récupérons la nouvelle valeur <code>newVal</code> afin de mettre à jour la data <code>fullName</code>.
+
+Vous devez sans doute vous dire que dans ce cas, autant utiliser une <code>computed</code>, et vous aurez raison. Dans la plupart des cas, si vous pensez à utiliser un <code>watcher</code>, réfléchissez avant pour savoir si ce que vous voulez n'est pas possible en <code>computed</code>.
+
+
 ## Communication
 
 ### props
@@ -311,4 +342,59 @@ ou dans le cas ou il utilise une data :
 
 ```js
 <ComposantEnfant :numero="maData" />
+```
+
+### events
+
+Afin qu'un enfant puisse communiquer avec son parent, il faut qu'il communique avec lui grâce à des <code>events</code>. 
+Ces events sont définissables par vous avec le nom que vous souhaitez et sont appelables de la même manière que tous les autres grâce à la directive <code>v-on</code>.
+
+```vue
+<!-- MonComposantEnfant.vue -->
+<template>
+  <button @click="sendDataToParent(donnee)">
+    Alert parent
+  </button>
+</template>
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data: () => {
+    return {
+      donnee: 'hello',
+    },
+  },
+  emits: ['update-data'],
+  methods: {
+    sendDataToParent(data) {
+      this.$emit('update-data', data);
+    }
+  }
+});
+</script>
+```
+
+Dans cet exemple, à chaque fois que dans ce composant, le bouton est cliqué, la méthode <code>sendDataToParent</code> est appelée. Cette méthode fait appel à la méthode <code>this.$emit</code> qui permet au composant, d'envoyer un événement au parent. Ici nous envoyons l'événement <code>update-data</code> au parent avec la data <code>donnee</code>.
+
+Pour que le parent récupère cette donnée, il faut qu'il appelle le composant en précisant quoi faire lors de la réception de l'événement.
+
+Exemple :
+
+```vue
+<template>
+  <mon-composant-enfant @updateData="handleChildData"/>
+</template>
+
+<script>
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  methods: {
+    handleChildData(payload) {
+      console.log(payload.donnee);
+    }
+  }
+})
+</script>
 ```
