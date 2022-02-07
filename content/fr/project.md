@@ -50,11 +50,50 @@ Ceci dit cette API ne contient pas d’images, gardez celà en tête si vous pen
 afficher les images des films. <br><br>
 Lien de l’API : https://ghibliapi.herokuapp.com/
 
-<!-- 
+
 ## Barème
 
-| Maitrise des bases de Vue     | 5pts  |
-|-------------------------------|-------|
-|                               |       |
-|                               |       |
-|                               |       | -->
+| Maitrise des bases de Vue             | 5pts  |
+|---------------------------------------|-------|
+| - Rendu déclaratif des variables              |
+| - Liaison de données                          |
+| - Utilisation intelligente des composants     |
+| - Communication entre composants              |
+| - Bonne utilisation des options d'un composant |
+| - Utilisation intelligente des directives     |
+| - Modification intelligente de la css         |
+
+| Maitrise du router                    | 5pts  |
+|---------------------------------------|-------|
+| - Configuration du router             |       |
+| - Navigation à l'aide de routes entre composants |       |
+| - Passage de paramètres/props/query intelligent entre les routes|
+| - Utilisation de sous routes ( Si besoin ) |
+
+| Maitrises des appels RESTfull via axios| 3pts  |
+|---------------------------------------|-------|
+| - Appel d'API REST                           |
+| - Gestion des succès et erreurs       |
+| - Formattage des données reçues |
+
+| Maitrise du store                     | 5pts  |
+|---------------------------------------|-------|
+| - Utilisation de getters                      |
+| - Utilisation des mutations                   |
+| - Utilisation des actions pour les requêtes asynchrones |
+| - Réutilisation des données du store entre les composants |
+
+| Propreté du code (commentaires, indentation...) + présence d’un README explicatif| 2pts  |
+|---------------------------------------|-------|
+
+
+<style>
+tbody > tr {
+    border:none!important;
+    line-height: 0.5em;
+}
+
+thead > tr > th:nth-child(2) {
+    text-align: right;
+}
+</style>
