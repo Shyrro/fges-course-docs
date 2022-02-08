@@ -15,7 +15,7 @@ features:
 <img src="/Vue3.png"  width="1280" height="640" alt=""/>
 
 Bienvenue sur cette documentation qui contient toutes les infos dont vous aurez besoin dans ce cours.
-Afin de profiter du cours, il est obligatoire de rejoindre le discord suivant: https://discord.gg/BRtCG6sb.
+Afin de profiter du cours, il est obligatoire de rejoindre le discord suivant: https://discord.gg/sVhdFDhtz2.
 
 Merci de vous présenter la première fois que vous rejoignez le Discord, ça me permet de vous reconnaître.
 Si je remarque que dans le Discord il y a des personnes dont le nom ne m'est pas familier, elles seront expulsées du Discord.
