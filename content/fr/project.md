@@ -80,7 +80,6 @@ Lien de l’API : https://ghibliapi.herokuapp.com/
 |---------------------------------------|-------|
 | - Utilisation de getters                      |
 | - Utilisation des mutations                   |
-| - Utilisation des actions pour les requêtes asynchrones |
 | - Réutilisation des données du store entre les composants |
 
 | Propreté du code (commentaires, indentation...) + présence d’un README explicatif| 2pts  |
