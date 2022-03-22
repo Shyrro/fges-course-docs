@@ -86,6 +86,39 @@ Lien de l’API : https://ghibliapi.herokuapp.com/
 | Propreté du code (commentaires, indentation...) + présence d’un README explicatif| 2pts  |
 |---------------------------------------|-------|
 
+## Recommandations
+
+Dans cette section, je vous conseille quelques librairies UI pour vous économiser du temps dans votre projet. 
+
+Voici les librairies compatibles Vue 3 que je vous conseille : 
+
+### NaiveUI
+
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--e52ZPnB1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pgv7cugpx4pkcpypduvc.png">
+
+Naive UI est librairie offrant des composants légers avec des utilitaires ready to use correspondant à la plupart des cas que vous allez rencontrer. 
+
+Lien de la documentation : https://www.naiveui.com/en-US/os-theme;
+
+### PrimeVue
+
+<img src="https://i1.wp.com/www.primefaces.org/wp-content/uploads/2021/05/hashnode-vue-3.5.02x.jpg?resize=1060%2C557&ssl=1">
+
+Prime Vue est une librairie complète qui vous offre différents thèmes intégrés utilisables pour votre application ainsi que des composants très complets. 
+
+Documentation : https://www.primefaces.org/primevue/#/setup
+
+### VantUI
+
+<img src="https://92ui.net/wp-content/uploads/2021/03/bc0ff793e533afaf9f3abc0f82c8da1d.jpg" />
+
+VantUI est une librairie dont les composants sont adaptés à l'utilisation mobile.
+
+Documentation : https://vant-contrib.gitee.io/vant/#/en-US/home
+
+
+Il existe évidemment, une infinité d'autres librairies, ceux ci ne sont que des recommandations de librairies que je pense adaptées à l'usage de vos projets.
+
 
 <style>
 tbody > tr {
